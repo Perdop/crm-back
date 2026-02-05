@@ -5,10 +5,21 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.useGlobalPipes(new ValidationPipe());
+  // Valida automaticamente DTOs
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true, // remove propriedades não declaradas nos DTOs
+      forbidNonWhitelisted: true, // lança erro se houver campos extras
+      transform: true, // converte tipos automaticamente (ex: string -> number)
+    }),
+  );
 
+  // Habilita CORS
   app.enableCors();
 
-  await app.listen(process.env.PORT ?? 4000);
+  const port = process.env.PORT ?? 4000;
+  await app.listen(port);
+  console.log(`Servidor rodando na porta ${port}`);
 }
+
 void bootstrap();

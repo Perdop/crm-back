@@ -22,10 +22,10 @@ export class Bolsa {
   validade: Date;
 
   @Column({
-  type: 'tinyint',
-  width: 1,
-  default: 1,
-})
+    type: 'smallint',
+    width: 1,
+    default: 1,
+  })
   ativa: boolean; // Se a bolsa está ativa
 
   // RELACIONAMENTO
