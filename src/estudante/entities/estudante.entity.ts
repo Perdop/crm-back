@@ -27,9 +27,8 @@ export class Estudante {
   cursoInteresse: string;
 
   @Column({
-    type: 'smallint',
-    width: 1,
-    default: 1,
+    type: 'boolean',
+    default: true,
   })
   ativo: boolean;
 

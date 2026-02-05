@@ -22,9 +22,8 @@ export class Bolsa {
   validade: Date;
 
   @Column({
-    type: 'smallint',
-    width: 1,
-    default: 1,
+    type: 'boolean',
+    default: true,
   })
   ativa: boolean; // Se a bolsa está ativa
 
