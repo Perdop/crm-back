@@ -57,12 +57,10 @@ export class EstudanteService {
 
   async create(estudante: Estudante): Promise<Estudante> {
     await this.bolsaService.findById(estudante.bolsa.id);
-    
     return await this.estudanteRepository.save(estudante);
   }
 
   async update(estudante: Estudante): Promise<Estudante> {
-
     await this.findById(estudante.id);
 
     await this.bolsaService.findById(estudante.bolsa.id);
