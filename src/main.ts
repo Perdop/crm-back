@@ -8,8 +8,8 @@ async function bootstrap() {
   // Valida automaticamente DTOs
   app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true, // remove propriedades não declaradas nos DTOs
-      forbidNonWhitelisted: true, // lança erro se houver campos extras
+      whitelist: false, // remove propriedades não declaradas nos DTOs
+      forbidNonWhitelisted: false, // lança erro se houver campos extras
       transform: true, // converte tipos automaticamente (ex: string -> number)
     }),
   );

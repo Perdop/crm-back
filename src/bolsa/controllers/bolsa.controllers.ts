@@ -55,10 +55,7 @@ export class BolsaController {
 
   @Put('/:id/status')
   @HttpCode(HttpStatus.OK)
-  updateStatus(
-  @Param('id') id: number,
-  @Body('ativa') ativa: boolean,
-) {
-  return this.bolsaService.updateStatus(id, ativa);
-}
+  updateStatus(@Param('id') id: number, @Body('ativa') ativa: boolean) {
+    return this.bolsaService.updateStatus(id, ativa);
+  }
 }
